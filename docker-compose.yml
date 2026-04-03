@@ -1,0 +1,25 @@
+services:
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - book-service
+      - user-service
+      - loan-service
+
+  book-service:
+    build: ./book-service
+    ports:
+      - "3001:3001"
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "3002:3002"
+
+  loan-service:
+    build: ./loan-service
+    ports:
+      - "3003:3003"
