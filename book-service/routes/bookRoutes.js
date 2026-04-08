@@ -8,10 +8,10 @@ router.get("/", controller.getBooks);
 // Crear libro
 router.post("/", controller.createBook);
 
-// 📕 Prestar libro
+// Prestar libro
 router.put("/loan/:id", controller.loanBook);
 
-// 📗 Devolver libro
+// Devolver libro
 router.put("/return/:id", controller.returnBook);
 
 module.exports = router;

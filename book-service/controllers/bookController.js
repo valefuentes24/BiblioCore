@@ -2,14 +2,14 @@
 const Book = require("../models/Book");
 
 
-// 📚 Obtener todos los libros
+// Obtener todos los libros
 exports.getBooks = async (req, res) => {
   const books = await Book.find();
   res.json(books);
 };
 
 
-// ➕ Crear un libro
+// Crear un libro
 exports.createBook = async (req, res) => {
   const book = new Book(req.body);
 
@@ -23,7 +23,7 @@ exports.createBook = async (req, res) => {
 };
 
 
-// 📕 PRESTAR LIBRO
+//  PRESTAR LIBRO
 exports.loanBook = async (req, res) => {
   try {
     // Buscamos el libro por ID
@@ -60,7 +60,7 @@ exports.loanBook = async (req, res) => {
 };
 
 
-// 📗 DEVOLVER LIBRO
+//  DEVOLVER LIBRO
 exports.returnBook = async (req, res) => {
   try {
     // Buscamos el libro
