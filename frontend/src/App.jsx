@@ -9,7 +9,7 @@ import Sidebar from "./components/Sidebar";
 
 function LayoutConSidebar({ children }) {
   return (
-    <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#1a1f2e" }}>
+    <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "var(--bg-page)" }}>
       <Sidebar />
       <div style={{ flex: 1, overflowY: "auto" }}>
         {children}

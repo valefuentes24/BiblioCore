@@ -74,14 +74,17 @@ function MisLibros() {
       <div style={styles.lista}>
         {loansActivos.map((loan) => {
           const book = books[loan.bookId];
+          const title = loan.bookTitle || book?.title || loan.bookId;
+          const author = loan.bookAuthor || book?.author || "";
+          const cover = loan.coverUrl || book?.coverUrl;
           const diasRestantes = calcularDiasRestantes(loan.loanDate);
 
           return (
             <div key={loan._id} style={styles.card}>
               {/* Portada */}
               <div style={styles.coverBox}>
-                {book?.coverUrl ? (
-                  <img src={book.coverUrl} alt={book.title} style={styles.coverImg} />
+                {cover ? (
+                  <img src={cover} alt={title} style={styles.coverImg} />
                 ) : (
                   <span style={{ fontSize: "36px" }}>📗</span>
                 )}
@@ -89,12 +92,12 @@ function MisLibros() {
 
               {/* Info */}
               <div style={styles.info}>
-                <p style={styles.bookTitle}>{book?.title || loan.bookId}</p>
-                <p style={styles.bookAuthor}>{book?.author || ""}</p>
+                <p style={styles.bookTitle}>{title}</p>
+                <p style={styles.bookAuthor}>{author}</p>
                 <div style={styles.badge}>Prestado</div>
                 <div style={styles.fechas}>
                   <span>📅 Prestado: {new Date(loan.loanDate).toLocaleDateString()}</span>
-                  <span style={{ color: diasRestantes < 3 ? "#e74c3c" : "#8b93a7" }}>
+                  <span style={{ color: diasRestantes < 3 ? "var(--error-soft)" : "var(--text-muted)" }}>
                     📅 Devolver en {diasRestantes} días
                   </span>
                 </div>
@@ -121,22 +124,25 @@ function MisLibros() {
           <div style={styles.lista}>
             {loansDevueltos.map((loan) => {
               const book = books[loan.bookId];
+              const title = loan.bookTitle || book?.title || loan.bookId;
+              const author = loan.bookAuthor || book?.author || "";
+              const cover = loan.coverUrl || book?.coverUrl;
               return (
                 <div key={loan._id} style={{ ...styles.card, opacity: 0.6 }}>
                   <div style={styles.coverBox}>
-                    {book?.coverUrl ? (
-                      <img src={book.coverUrl} alt={book.title} style={styles.coverImg} />
+                    {cover ? (
+                      <img src={cover} alt={title} style={styles.coverImg} />
                     ) : (
                       <span style={{ fontSize: "36px" }}>📗</span>
                     )}
                   </div>
                   <div style={styles.info}>
-                    <p style={styles.bookTitle}>{book?.title || loan.bookId}</p>
-                    <p style={styles.bookAuthor}>{book?.author || ""}</p>
-                    <div style={{ ...styles.badge, backgroundColor: "#3a4156" }}>
+                    <p style={styles.bookTitle}>{title}</p>
+                    <p style={styles.bookAuthor}>{author}</p>
+                    <div style={{ ...styles.badge, backgroundColor: "var(--badge-neutral)", color: "var(--on-accent)" }}>
                       Devuelto
                     </div>
-                    <span style={{ color: "#8b93a7", fontSize: "12px" }}>
+                    <span style={{ color: "var(--text-muted)", fontSize: "12px" }}>
                       📅 Prestado: {new Date(loan.loanDate).toLocaleDateString()}
                     </span>
                   </div>
@@ -153,9 +159,9 @@ function MisLibros() {
 const styles = {
   container: {
     padding: "24px 32px",
-    color: "white",
+    color: "var(--text-primary)",
     minHeight: "100vh",
-    backgroundColor: "#1a1f2e"
+    backgroundColor: "var(--bg-page)"
   },
   title: {
     fontSize: "22px",
@@ -163,16 +169,16 @@ const styles = {
     margin: "0 0 4px 0"
   },
   subtitle: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "13px",
     marginBottom: "24px"
   },
   empty: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "14px"
   },
   mensaje: {
-    color: "#2ecc71",
+    color: "var(--success-text)",
     fontSize: "13px",
     marginBottom: "12px"
   },
@@ -182,17 +188,19 @@ const styles = {
     gap: "16px"
   },
   card: {
-    backgroundColor: "#242938",
+    backgroundColor: "var(--bg-surface)",
     borderRadius: "12px",
     padding: "16px 20px",
     display: "flex",
     alignItems: "center",
-    gap: "20px"
+    gap: "20px",
+    border: "1px solid var(--border-subtle)",
+    boxShadow: "var(--shadow-card)"
   },
   coverBox: {
     width: "80px",
     height: "80px",
-    backgroundColor: "#2f3548",
+    backgroundColor: "var(--bg-input)",
     borderRadius: "8px",
     display: "flex",
     justifyContent: "center",
@@ -212,19 +220,19 @@ const styles = {
     gap: "4px"
   },
   bookTitle: {
-    color: "white",
+    color: "var(--text-primary)",
     fontSize: "15px",
     fontWeight: "bold",
     margin: 0
   },
   bookAuthor: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "12px",
     margin: 0
   },
   badge: {
-    backgroundColor: "#f5c518",
-    color: "#1a1f2e",
+    backgroundColor: "var(--warning-soft)",
+    color: "var(--warning-text)",
     borderRadius: "6px",
     padding: "3px 10px",
     fontSize: "11px",
@@ -235,13 +243,13 @@ const styles = {
   fechas: {
     display: "flex",
     gap: "16px",
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "12px",
     marginTop: "4px"
   },
   btnDevolver: {
-    backgroundColor: "#e74c3c",
-    color: "white",
+    backgroundColor: "var(--danger)",
+    color: "var(--on-accent)",
     border: "none",
     borderRadius: "8px",
     padding: "10px 16px",

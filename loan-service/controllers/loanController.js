@@ -3,7 +3,7 @@ const axios = require("axios");
 
 exports.createLoan = async (req, res) => {
   try {
-    const { userId, bookId } = req.body;
+    const { userId, bookId, bookTitle, bookAuthor, coverUrl } = req.body;
 
     const existingLoan = await Loan.findOne({ userId, bookId, status: "active" });
     if (existingLoan) {
@@ -12,7 +12,13 @@ exports.createLoan = async (req, res) => {
 
     await axios.put(`http://book-service:3001/books/loan/${bookId}`);
 
-    const newLoan = new Loan({ userId, bookId });
+    const newLoan = new Loan({
+      userId,
+      bookId,
+      bookTitle: typeof bookTitle === "string" ? bookTitle : "",
+      bookAuthor: typeof bookAuthor === "string" ? bookAuthor : "",
+      coverUrl: typeof coverUrl === "string" ? coverUrl : "",
+    });
     await newLoan.save();
 
     res.status(201).json({ message: "Préstamo creado ✅", loan: newLoan });

@@ -76,10 +76,10 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     minHeight: "100vh",
-    backgroundColor: "#1a1f2e"
+    backgroundColor: "var(--bg-page)"
   },
   card: {
-    backgroundColor: "#242938",
+    backgroundColor: "var(--bg-surface)",
     padding: "48px 40px",
     borderRadius: "16px",
     width: "420px",
@@ -87,10 +87,11 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     gap: "16px",
-    boxShadow: "0 8px 32px rgba(0,0,0,0.4)"
+    boxShadow: "var(--shadow-card)",
+    border: "1px solid var(--border-subtle)"
   },
   iconContainer: {
-    backgroundColor: "#f5c518",
+    backgroundColor: "var(--warning-soft)",
     borderRadius: "16px",
     width: "64px",
     height: "64px",
@@ -99,12 +100,12 @@ const styles = {
     alignItems: "center"
   },
   title: {
-    color: "white",
+    color: "var(--text-primary)",
     fontSize: "26px",
     fontWeight: "bold"
   },
   subtitle: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "14px"
   },
   inputGroup: {
@@ -114,16 +115,16 @@ const styles = {
     gap: "8px"
   },
   label: {
-    color: "white",
+    color: "var(--text-primary)",
     fontSize: "14px",
     fontWeight: "500"
   },
   input: {
     padding: "14px 16px",
     borderRadius: "10px",
-    border: "none",
-    backgroundColor: "#2f3548",
-    color: "white",
+    border: "1px solid var(--border-subtle)",
+    backgroundColor: "var(--bg-input)",
+    color: "var(--text-primary)",
     fontSize: "15px",
     outline: "none",
     width: "100%"
@@ -131,8 +132,8 @@ const styles = {
   button: {
     width: "100%",
     padding: "14px",
-    backgroundColor: "#f5c518",
-    color: "#1a1f2e",
+    backgroundColor: "var(--accent)",
+    color: "var(--on-accent)",
     border: "none",
     borderRadius: "10px",
     fontSize: "16px",
@@ -141,21 +142,21 @@ const styles = {
     marginTop: "8px"
   },
   forgot: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "13px",
     cursor: "pointer"
   },
   registerText: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "13px"
   },
   link: {
-    color: "#f5c518",
+    color: "var(--link)",
     fontWeight: "bold",
     cursor: "pointer"
   },
   error: {
-    color: "#e74c3c",
+    color: "var(--error-soft)",
     fontSize: "13px"
   }
 };

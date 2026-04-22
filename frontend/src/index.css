@@ -5,11 +5,72 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/*
+ * Tema pastel para aprendizaje:
+ * - Fondos azul muy suave: calma, concentración, menor fatiga visual
+ * - Acento cielo: confianza y foco en tareas
+ * - Menta / éxito: refuerzo positivo, sensación de avance
+ * - Melocotón-ámbar suave: calidez y recordatorios sin alarma
+ * - Lavanda en detalles: asociación suave con creatividad y lectura
+ */
+:root {
+  --bg-page: #e8f1fa;
+  --bg-surface: #fbfcfe;
+  --bg-surface-muted: #eef4fb;
+  --bg-elevated: #e2ebf6;
+  --bg-input: #e5edf8;
+  --bg-sidebar: #cfdcf0;
+  --bg-header: #dbe5f4;
+
+  --text-primary: #3a4d66;
+  --text-secondary: #5a6d85;
+  --text-muted: #7589a3;
+  --text-subtle: #8b9eb8;
+
+  --accent: #9dc0e8;
+  --accent-strong: #85aede;
+  --on-accent: #2c4460;
+
+  --link: #6b8fc4;
+  --chip-accent: #6d8ab8;
+
+  --success: #95d4ba;
+  --success-text: #2a5a45;
+  --success-muted: #7ec9a5;
+
+  --warning: #e8d49a;
+  --warning-text: #5a4d2e;
+  --warning-soft: #f0e0b0;
+
+  --danger: #d4a898;
+  --danger-text: #6b453c;
+  --error-soft: #c9897a;
+
+  --toggle-off: #b0bdd4;
+  --badge-neutral: #a8b8d0;
+  --border-subtle: rgba(95, 125, 165, 0.28);
+  --shadow-card: 0 10px 36px rgba(75, 105, 145, 0.12);
+
+  --overlay-available: #a3dcc4;
+  --overlay-loaned: #e8d49a;
+
+  --stat-wash-1: rgba(232, 212, 154, 0.55);
+  --stat-wash-2: rgba(149, 212, 186, 0.45);
+  --stat-wash-3: rgba(157, 192, 232, 0.5);
+
+  --item-active-bg: rgba(157, 192, 232, 0.45);
+}
+
 body {
-  background-color: #1a1f2e;
-  color: white;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
 }
 
 a {
   text-decoration: none;
+}
+
+::placeholder {
+  color: var(--text-muted);
+  opacity: 0.9;
 }

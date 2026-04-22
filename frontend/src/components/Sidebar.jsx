@@ -52,7 +52,7 @@ function Sidebar() {
 const styles = {
   sidebar: {
     width: "60px",
-    backgroundColor: "#151a27",
+    backgroundColor: "var(--bg-sidebar)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -60,14 +60,15 @@ const styles = {
     paddingBottom: "20px",
     minHeight: "100vh",
     position: "sticky",
-    top: 0
+    top: 0,
+    borderRight: "1px solid var(--border-subtle)"
   },
   logo: {
     marginBottom: "32px",
     cursor: "pointer"
   },
   logoBox: {
-    backgroundColor: "#f5c518",
+    backgroundColor: "var(--warning-soft)",
     borderRadius: "10px",
     width: "40px",
     height: "40px",
@@ -92,8 +93,8 @@ const styles = {
     transition: "background 0.2s"
   },
   itemActive: {
-    backgroundColor: "#f5c51833",
-    borderLeft: "3px solid #f5c518"
+    backgroundColor: "var(--item-active-bg)",
+    borderLeft: "3px solid var(--accent-strong)"
   },
   icon: {
     fontSize: "20px"

@@ -58,21 +58,21 @@ function Perfil() {
       <h3 style={styles.sectionTitle}>Estadísticas</h3>
       <div style={styles.statsRow}>
         <div style={styles.statCard}>
-          <div style={{ ...styles.statIcon, backgroundColor: "#f5c51833" }}>
+          <div style={{ ...styles.statIcon, backgroundColor: "var(--stat-wash-1)" }}>
             <span style={{ fontSize: "20px" }}>📖</span>
           </div>
           <p style={styles.statNum}>{activos}</p>
           <p style={styles.statLabel}>Libros prestados</p>
         </div>
         <div style={styles.statCard}>
-          <div style={{ ...styles.statIcon, backgroundColor: "#2ecc9a33" }}>
+          <div style={{ ...styles.statIcon, backgroundColor: "var(--stat-wash-2)" }}>
             <span style={{ fontSize: "20px" }}>📅</span>
           </div>
           <p style={styles.statNum}>{total}</p>
           <p style={styles.statLabel}>Total prestado</p>
         </div>
         <div style={styles.statCard}>
-          <div style={{ ...styles.statIcon, backgroundColor: "#4a90e233" }}>
+          <div style={{ ...styles.statIcon, backgroundColor: "var(--stat-wash-3)" }}>
             <span style={{ fontSize: "20px" }}>📚</span>
           </div>
           <p style={styles.statNum}>{devueltos}</p>
@@ -88,7 +88,7 @@ function Perfil() {
           <div
             style={{
               ...styles.toggle,
-              backgroundColor: notificaciones ? "#f5c518" : "#3a4156"
+              backgroundColor: notificaciones ? "var(--accent)" : "var(--toggle-off)"
             }}
             onClick={() => setNotificaciones(!notificaciones)}
           >
@@ -104,7 +104,7 @@ function Perfil() {
           <div
             style={{
               ...styles.toggle,
-              backgroundColor: recordatorios ? "#f5c518" : "#3a4156"
+              backgroundColor: recordatorios ? "var(--accent)" : "var(--toggle-off)"
             }}
             onClick={() => setRecordatorios(!recordatorios)}
           >
@@ -123,9 +123,9 @@ function Perfil() {
 const styles = {
   container: {
     padding: "24px 32px",
-    color: "white",
+    color: "var(--text-primary)",
     minHeight: "100vh",
-    backgroundColor: "#1a1f2e"
+    backgroundColor: "var(--bg-page)"
   },
   title: {
     fontSize: "22px",
@@ -133,22 +133,24 @@ const styles = {
     margin: "0 0 4px 0"
   },
   subtitle: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "13px",
     marginBottom: "24px"
   },
   card: {
-    backgroundColor: "#242938",
+    backgroundColor: "var(--bg-surface)",
     borderRadius: "12px",
     padding: "24px",
     display: "flex",
     alignItems: "center",
     gap: "20px",
     marginBottom: "28px",
-    maxWidth: "600px"
+    maxWidth: "600px",
+    border: "1px solid var(--border-subtle)",
+    boxShadow: "var(--shadow-card)"
   },
   avatarBox: {
-    backgroundColor: "#f5c518",
+    backgroundColor: "var(--warning-soft)",
     borderRadius: "12px",
     width: "60px",
     height: "60px",
@@ -166,19 +168,19 @@ const styles = {
     gap: "4px"
   },
   userName: {
-    color: "white",
+    color: "var(--text-primary)",
     fontSize: "18px",
     fontWeight: "bold",
     margin: 0
   },
   userEmail: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "13px",
     margin: 0
   },
   btnCerrar: {
     backgroundColor: "transparent",
-    color: "#8b93a7",
+    color: "var(--link)",
     border: "none",
     padding: "0",
     cursor: "pointer",
@@ -199,14 +201,16 @@ const styles = {
     maxWidth: "600px"
   },
   statCard: {
-    backgroundColor: "#242938",
+    backgroundColor: "var(--bg-surface)",
     borderRadius: "12px",
     padding: "20px",
     flex: 1,
     minWidth: "140px",
     display: "flex",
     flexDirection: "column",
-    gap: "8px"
+    gap: "8px",
+    border: "1px solid var(--border-subtle)",
+    boxShadow: "var(--shadow-card)"
   },
   statIcon: {
     width: "40px",
@@ -217,24 +221,26 @@ const styles = {
     alignItems: "center"
   },
   statNum: {
-    color: "white",
+    color: "var(--text-primary)",
     fontSize: "28px",
     fontWeight: "bold",
     margin: 0
   },
   statLabel: {
-    color: "#8b93a7",
+    color: "var(--text-muted)",
     fontSize: "12px",
     margin: 0
   },
   prefsCard: {
-    backgroundColor: "#242938",
+    backgroundColor: "var(--bg-surface)",
     borderRadius: "12px",
     padding: "20px 24px",
     display: "flex",
     flexDirection: "column",
     gap: "20px",
-    maxWidth: "600px"
+    maxWidth: "600px",
+    border: "1px solid var(--border-subtle)",
+    boxShadow: "var(--shadow-card)"
   },
   prefRow: {
     display: "flex",
@@ -242,7 +248,7 @@ const styles = {
     alignItems: "center"
   },
   prefLabel: {
-    color: "white",
+    color: "var(--text-primary)",
     fontSize: "14px"
   },
   toggle: {
@@ -258,7 +264,7 @@ const styles = {
     top: "2px",
     width: "20px",
     height: "20px",
-    backgroundColor: "white",
+    backgroundColor: "var(--bg-surface)",
     borderRadius: "50%",
     transition: "transform 0.3s"
   }
