@@ -4,8 +4,14 @@ const API = axios.create({
   baseURL: "/api"
 });
 
-export const registerUser = (data) => API.post("/users/register", data);
-export const loginUser = (data) => API.post("/users/login", data);
+
+export const loginUser = (data) =>
+  axios.post("https://hypnotism-ipad-require.ngrok-free.dev /users/login", data);
+
+
+export const registerUser = (data) =>
+  axios.post("https://hypnotism-ipad-require.ngrok-free.dev/users/register", data);
+
 export const getUsers = () => API.get("/users");
 export const getBooks = () => API.get("/books");
 export const searchBooks = (query, extra = {}) =>
