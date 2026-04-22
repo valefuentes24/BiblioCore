@@ -13,6 +13,8 @@ services:
     build: ./book-service
     ports:
       - "3001:3001"
+    environment:
+      - GOOGLE_BOOKS_API_KEY=${GOOGLE_BOOKS_API_KEY}
 
   user-service:
     build: ./user-service

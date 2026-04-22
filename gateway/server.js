@@ -23,12 +23,40 @@ app.get("/books", async (req, res) => {
   }
 });
 
+app.get("/books/search", async (req, res) => {
+  try {
+    const response = await axios.get("http://book-service:3001/books/search", {
+      params: req.query,
+    });
+    res.json(response.data);
+  } catch (error) {
+    const status = error.response?.status || 500;
+    const payload =
+      error.response?.data || { error: "Error buscando libros externos" };
+    res.status(status).json(payload);
+  }
+});
+
 app.post("/books", async (req, res) => {
   try {
     const response = await axios.post("http://book-service:3001/books", req.body);
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: "Error creando libro" });
+  }
+});
+
+app.delete("/books/:id", async (req, res) => {
+  try {
+    const response = await axios.delete(
+      `http://book-service:3001/books/${req.params.id}`
+    );
+    res.json(response.data);
+  } catch (error) {
+    const status = error.response?.status || 500;
+    const payload =
+      error.response?.data || { error: "Error eliminando libro" };
+    res.status(status).json(payload);
   }
 });
 

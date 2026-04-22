@@ -20,7 +20,21 @@ const bookSchema = new mongoose.Schema({
   available: {
     type: Boolean,
     default: true
-  }
+  },
+
+  // Género / estante (opcional, para catálogo local)
+  category: {
+    type: String,
+    enum: [
+      "narrativa",
+      "ensayo",
+      "ciencia",
+      "historia",
+      "biografias",
+      "infantil",
+    ],
+    default: "narrativa",
+  },
 
 });
 
